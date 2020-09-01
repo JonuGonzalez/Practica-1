@@ -3,7 +3,15 @@ import json
 import re
 registro = []
 def inicio():
-    print("Bienvenido Para Iniciar Con el Sistema Utilice el Comando Cargar")
+    print("Para Iniciar Presione 1")
+    print("para salir presione 0")
+    opcion = input()
+    if opcion == "1":
+        comandos()
+    else:exit()
+
+def comandos():
+    print("Escribe un comando")
     instruccion = input()
     conversion = instruccion.lower()
     validar = 'cargar' in conversion
@@ -29,5 +37,6 @@ def cargar(archivo):
         array.append([n,e,a,p])
     print(array)
     return array
+print(registro)
 
 inicio()
