@@ -2,7 +2,7 @@ import cargar
 import json
 import re
 def inicio():
-    print("Para Iniciar Presione 1")
+    print("Para Escribir un Comando Presione 1")
     print("para salir presione 0")
     opcion = input()
     if opcion == "1":
