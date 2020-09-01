@@ -1,13 +1,33 @@
-print("A continuación se muestran tres archivos",)
 import cargar
+import json
 import re
+registro = []
+def inicio():
+    print("Bienvenido Para Iniciar Con el Sistema Utilice el Comando Cargar")
+    instruccion = input()
+    conversion = instruccion.lower()
+    validar = 'cargar' in conversion
+    if validar == True:
+        comando = conversion.strip('cargar')
+        archivo = comando.strip().split(', ')
+        for file in archivo:
+            registro = cargar(file)
+    inicio()
+    return registro
 
-print("Bienvenido Para Iniciar Con el Sistema Utilice el Comando Cargar")
-instruccion = input()
-conversion = instruccion.lower()
-validar = 'cargar' in conversion
-if validar == True:
-    comando = conversion.strip('cargar')
-    archivo = comando.strip().split(',')
-    for file in archivo:
-        cargar.cargar(file)
+def cargar(archivo):
+    with open(archivo+'.json') as file:
+        data = json.load(file)
+        print("Archivo Cargado Correctamente")
+    file.close()
+    array = []
+    for entidad in data:
+        n = entidad['nombre']
+        e = entidad['edad']
+        a = entidad['activo']
+        p = entidad['promedio']
+        array.append([n,e,a,p])
+    print(array)
+    return array
+
+inicio()
