@@ -1,7 +1,6 @@
 import cargar
 import json
 import re
-registro = []
 def inicio():
     print("Para Iniciar Presione 1")
     print("para salir presione 0")
@@ -37,6 +36,4 @@ def cargar(archivo):
         array.append([n,e,a,p])
     print(array)
     return array
-print(registro)
-
 inicio()
