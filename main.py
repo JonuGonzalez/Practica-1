@@ -3,11 +3,11 @@ import cargar
 import re
 
 print("Bienvenido Para Iniciar Con el Sistema Utilice el Comando Cargar")
-comando = input()
-conversion = comando.lower()
-validar = 'archivo1' in conversion
+instruccion = input()
+conversion = instruccion.lower()
+validar = 'cargar' in conversion
 if validar == True:
-    print(validar)
-    print(conversion)
-    archivo = conversion
-    cargar.cargar(archivo)
+    comando = conversion.strip('cargar')
+    archivo = comando.strip().split(',')
+    for file in archivo:
+        cargar.cargar(file)
