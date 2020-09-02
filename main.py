@@ -1,4 +1,3 @@
-import cargar
 import json
 import re
 array = []
