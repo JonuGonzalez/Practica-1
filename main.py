@@ -1,6 +1,7 @@
 import cargar
 import json
 import re
+array = []
 def inicio():
     print("Para Escribir un Comando Presione 1")
     print("para salir presione 0")
@@ -21,19 +22,17 @@ def comandos():
             registro = cargar(file)
     inicio()
     return registro
-
 def cargar(archivo):
-    with open(archivo+'.json') as file:
+    with open(archivo) as file:
         data = json.load(file)
         print("Archivo Cargado Correctamente")
     file.close()
-    array = []
     for entidad in data:
         n = entidad['nombre']
         e = entidad['edad']
         a = entidad['activo']
         p = entidad['promedio']
-        array.append([n,e,a,p])
+        array.append([n, e, a, p])
     print(array)
     return array
 inicio()
