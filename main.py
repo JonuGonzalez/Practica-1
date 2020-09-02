@@ -22,6 +22,8 @@ def menu():
         maximo()
     elif opcion == "4":
         minimo()
+    elif opcion == "5":
+        suma()
     elif opcion == "0":
         exit()
 
@@ -109,7 +111,34 @@ def minimo():
             print("El promedio mas bajo es: ")
             print(min(promedio))
         else:print("Comando Invalido")
-    else: print("No utilizaste el comando Maximo")
+    else: print("No utilizaste el comando Minimo")
+    menu()
+
+def suma():
+    print("Escribe el comando Suma")
+    instruccion = input()
+    conversion = instruccion.lower()
+    validar = 'suma' in conversion
+    if validar == True:
+        comando = conversion.lstrip('suma ')
+        if comando == "edad":
+            edad = []
+            for entidad in array:
+                e = entidad['edad']
+                edad.append(e)
+            print(edad)
+            print("La suma de las edades es: ")
+            print(sum(edad))
+        elif comando == "promedio":
+            promedio = []
+            for entidad in array:
+                p = entidad['promedio']
+                promedio.append(p)
+            print(promedio)
+            print("La suma de los promedios es: ")
+            print(sum(promedio))
+        else:print("Comando Invalido")
+    else: print("No utilizaste el comando Suma")
     menu()
 
 def prueba():

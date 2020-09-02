@@ -3,12 +3,12 @@
         "nombre": "registro 3",
         "edad": 21,
         "activo": true,
-        "promedio": 56.456
+        "promedio": 27.856
     },
     {
         "nombre": "registro 4",
         "edad": 38,
         "activo": false,
-        "promedio": 45.896
+        "promedio": 91.893
     }
 ]
