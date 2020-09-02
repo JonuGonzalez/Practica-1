@@ -20,6 +20,8 @@ def menu():
         analisiscargar()
     elif opcion == "3":
         maximo()
+    elif opcion == "4":
+        minimo()
     elif opcion == "0":
         exit()
 
@@ -69,7 +71,7 @@ def maximo():
                 e = entidad['edad']
                 edad.append([e])
             print(edad)
-            print("La edad mas alta es: ")
+            print("La edad mayor es: ")
             print(max(edad))
         elif comando == "promedio":
             promedio = []
@@ -79,6 +81,33 @@ def maximo():
             print(promedio)
             print("El promedio mas alto es: ")
             print(max(promedio))
+        else:print("Comando Invalido")
+    else: print("No utilizaste el comando Maximo")
+    menu()
+
+def minimo():
+    print("Escribe el comando Minimo")
+    instruccion = input()
+    conversion = instruccion.lower()
+    validar = 'minimo' in conversion
+    if validar == True:
+        comando = conversion.lstrip('minimo ')
+        if comando == "edad":
+            edad = []
+            for entidad in array:
+                e = entidad['edad']
+                edad.append([e])
+            print(edad)
+            print("La edad menor es: ")
+            print(min(edad))
+        elif comando == "promedio":
+            promedio = []
+            for entidad in array:
+                p = entidad['promedio']
+                promedio.append([p])
+            print(promedio)
+            print("El promedio mas bajo es: ")
+            print(min(promedio))
         else:print("Comando Invalido")
     else: print("No utilizaste el comando Maximo")
     menu()
