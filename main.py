@@ -29,7 +29,7 @@ def analisiscargar():
     conversion = instruccion.lower()
     validar = 'cargar' in conversion
     if validar == True:
-        comando = conversion.strip('cargar')
+        comando = conversion.lstrip('cargar')
         archivo = comando.strip().split(', ')
         for file in archivo:
             registro = cargar(file)
@@ -62,7 +62,7 @@ def maximo():
     conversion = instruccion.lower()
     validar = 'maximo' in conversion
     if validar == True:
-        comando = conversion.strip('maximo ')
+        comando = conversion.lstrip('maximo ')
         if comando == "edad":
             edad = []
             for entidad in array:
@@ -71,23 +71,15 @@ def maximo():
             print(edad)
             print("La edad mas alta es: ")
             print(max(edad))
-    else: print("No utilizaste el comando Maximo")
-    menu()
-def maximo():
-    print("Escribe el comando Maximo")
-    instruccion = input()
-    conversion = instruccion.lower()
-    validar = 'maximo' in conversion
-    if validar == True:
-        comando = conversion.strip('maximo ')
-        if comando == "edad":
-            edad = []
+        elif comando == "promedio":
+            promedio = []
             for entidad in array:
-                e = entidad['edad']
-                edad.append([e])
-            print(edad)
-            print("La edad mas alta es: ")
-            print(max(edad))
+                p = entidad['promedio']
+                promedio.append([p])
+            print(promedio)
+            print("El promedio mas alto es: ")
+            print(max(promedio))
+        else:print("Comando Invalido")
     else: print("No utilizaste el comando Maximo")
     menu()
 
