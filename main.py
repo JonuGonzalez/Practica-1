@@ -24,6 +24,8 @@ def menu():
         minimo()
     elif opcion == "5":
         suma()
+    elif opcion == "6":
+        contar()
     elif opcion == "0":
         exit()
 
@@ -139,6 +141,17 @@ def suma():
             print(sum(promedio))
         else:print("Comando Invalido")
     else: print("No utilizaste el comando Suma")
+    menu()
+
+def contar():
+    print("Escribe el comando Contar")
+    instruccion = input()
+    conversion = instruccion.lower()
+    validar = 'contar' in conversion
+    if validar == True:
+        cantidad = len(array)
+        print(cantidad)
+    else: print("No utilizaste el comando Contar")
     menu()
 
 def prueba():
