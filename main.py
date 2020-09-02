@@ -28,11 +28,16 @@ def cargar(archivo):
         print("Archivo Cargado Correctamente")
     file.close()
     for entidad in data:
+        array.append(entidad)
+    print(array)
+    return array
+def seleccionar(data):
+    for entidad in data:
         n = entidad['nombre']
         e = entidad['edad']
         a = entidad['activo']
         p = entidad['promedio']
         array.append([n, e, a, p])
     print(array)
-    return array
+    return data
 inicio()
