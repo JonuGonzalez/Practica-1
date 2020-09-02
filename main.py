@@ -2,16 +2,29 @@ import cargar
 import json
 import re
 array = []
-def inicio():
-    print("Para Escribir un Comando Presione 1")
-    print("para salir presione 0")
-    opcion = input()
+edad = []
+promedio = []
+def menu():
+    print("")
+    print("Selecciona el comando que deseas utilizar")
+    print("1. Cargar")
+    print("2. Seleccionar")
+    print("3. Maximo")
+    print("4. Minimo")
+    print("5. Suma")
+    print("6. Cuenta")
+    print("7. Reportar")
+    print("0. Salir")
+    opcion = input('Escribe el numero de opcion que desees  ')
     if opcion == "1":
-        comandos()
-    else:exit()
+        analisiscargar()
+    elif opcion == "3":
+        maximo()
+    elif opcion == "0":
+        exit()
 
-def comandos():
-    print("Escribe un comando")
+def analisiscargar():
+    print("Escribe el comando Cargar")
     instruccion = input()
     conversion = instruccion.lower()
     validar = 'cargar' in conversion
@@ -20,7 +33,8 @@ def comandos():
         archivo = comando.strip().split(', ')
         for file in archivo:
             registro = cargar(file)
-    inicio()
+    else: print("No utilizaste el comando Cargar")
+    menu()
     return registro
 def cargar(archivo):
     with open(archivo) as file:
@@ -31,6 +45,7 @@ def cargar(archivo):
         array.append(entidad)
     print(array)
     return array
+
 def seleccionar(data):
     for entidad in data:
         n = entidad['nombre']
@@ -40,4 +55,43 @@ def seleccionar(data):
         array.append([n, e, a, p])
     print(array)
     return data
-inicio()
+
+def maximo():
+    print("Escribe el comando Maximo")
+    instruccion = input()
+    conversion = instruccion.lower()
+    validar = 'maximo' in conversion
+    if validar == True:
+        comando = conversion.strip('maximo ')
+        if comando == "edad":
+            edad = []
+            for entidad in array:
+                e = entidad['edad']
+                edad.append([e])
+            print(edad)
+            print("La edad mas alta es: ")
+            print(max(edad))
+    else: print("No utilizaste el comando Maximo")
+    menu()
+def maximo():
+    print("Escribe el comando Maximo")
+    instruccion = input()
+    conversion = instruccion.lower()
+    validar = 'maximo' in conversion
+    if validar == True:
+        comando = conversion.strip('maximo ')
+        if comando == "edad":
+            edad = []
+            for entidad in array:
+                e = entidad['edad']
+                edad.append([e])
+            print(edad)
+            print("La edad mas alta es: ")
+            print(max(edad))
+    else: print("No utilizaste el comando Maximo")
+    menu()
+
+def prueba():
+    print(array)
+
+menu()
