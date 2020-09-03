@@ -66,36 +66,28 @@ def seleccionar():
         comando = conversion.lstrip('seleccionar ')
         atributos = comando.strip().split(', ')
         s=[]
-        print(atributos)
         for entidad in array:
             nombre = 'mbre' in atributos
-            edad = 'edad' in atributos
             activo = 'activo' in atributos
             promedio = 'promedio' in atributos
             if nombre == True:
                 n = entidad['nombre']
                 s.append(n)
                 print(s)
-
-                if edad == True:
-                    e = entidad['edad']
-                    s.append(e)
-
-                    if activo == True:
-                        a = entidad['activo']
-                        s.append(a)
-
-                        if promedio == True:
-                            p = entidad['promedio']
-                            s.append(p)
-                            todo = '*' in atributos
-                            if todo == True:
-                                n = entidad['nombre']
-                                e = entidad['edad']
-                                a = entidad['activo']
-                                p = entidad['promedio']
-                                s.append([n, e, a, p])
-                            print(s)
+            edad = 'edad' in atributos
+            if edad == True:
+                e = entidad['edad']
+                s.append(e)
+                print(s)
+            if activo == True:
+                a = entidad['activo']
+                s.append(a)
+                print(s)
+            if promedio == True:
+                p = entidad['promedio']
+                s.append(p)
+                print(s)
+        menu()
 
 def maximo():
     print("Escribe el comando Maximo")

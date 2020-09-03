@@ -12,3 +12,12 @@ def seleccionar(data):
         luz.append([n, e, a, p])
     print(luz)
     return data
+
+todo = '*' in atributos
+            if todo == True:
+                n = entidad['nombre']
+                e = entidad['edad']
+                a = entidad['activo']
+                p = entidad['promedio']
+                s.append([n, e, a, p])
+                print(s)
