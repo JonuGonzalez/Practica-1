@@ -17,6 +17,8 @@ def menu():
     opcion = input('Escribe el numero de opcion que desees  ')
     if opcion == "1":
         analisiscargar()
+    elif opcion == "2":
+        seleccionar()
     elif opcion == "3":
         maximo()
     elif opcion == "4":
@@ -55,15 +57,45 @@ def cargar(archivo):
     print(array)
     return array
 
-def seleccionar(data):
-    for entidad in data:
-        n = entidad['nombre']
-        e = entidad['edad']
-        a = entidad['activo']
-        p = entidad['promedio']
-        array.append([n, e, a, p])
-    print(array)
-    return data
+def seleccionar():
+    print("Escribe el comando Seleccionar")
+    instruccion = input()
+    conversion = instruccion.lower()
+    validar = 'seleccionar' in conversion
+    if validar == True:
+        comando = conversion.lstrip('seleccionar ')
+        atributos = comando.strip().split(', ')
+        s=[]
+        print(atributos)
+        for entidad in array:
+            nombre = 'mbre' in atributos
+            edad = 'edad' in atributos
+            activo = 'activo' in atributos
+            promedio = 'promedio' in atributos
+            if nombre == True:
+                n = entidad['nombre']
+                s.append(n)
+                print(s)
+
+                if edad == True:
+                    e = entidad['edad']
+                    s.append(e)
+
+                    if activo == True:
+                        a = entidad['activo']
+                        s.append(a)
+
+                        if promedio == True:
+                            p = entidad['promedio']
+                            s.append(p)
+                            todo = '*' in atributos
+                            if todo == True:
+                                n = entidad['nombre']
+                                e = entidad['edad']
+                                a = entidad['activo']
+                                p = entidad['promedio']
+                                s.append([n, e, a, p])
+                            print(s)
 
 def maximo():
     print("Escribe el comando Maximo")
@@ -267,8 +299,14 @@ table th {
     htmFile.close
     webbrowser.open_new_tab('reporte.html')
 
-
-def prueba():
-    print(array)
-
+def prueba(data):
+    luz = data
+    for entidad in data:
+        n = entidad['nombre']
+        e = entidad['edad']
+        a = entidad['activo']
+        p = entidad['promedio']
+        luz.append([n, e, a, p])
+    print(luz)
+    return data
 menu()

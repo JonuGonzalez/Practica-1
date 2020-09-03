@@ -1,13 +1,14 @@
-def seleccionar(data, archivo):
+def seleccionar(data):
     for entidad in data:
         entidadnombre = entidad['nombre']
         print(entidadnombre)
-    array = data
-    print(array)
+    luz = data
+
     for entidad in data:
         n = entidad['nombre']
         e = entidad['edad']
         a = entidad['activo']
         p = entidad['promedio']
-        array.append([n, e, a, p])
+        luz.append([n, e, a, p])
+    print(luz)
     return data
