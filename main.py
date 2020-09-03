@@ -3,6 +3,7 @@ import webbrowser
 array = []
 edad = []
 promedio = []
+
 def menu():
     print("")
     print("Selecciona el comando que deseas utilizar")
@@ -58,7 +59,7 @@ def cargar(archivo):
     return array
 
 def seleccionar():
-    print("Escribe el comando Seleccionar SIN LA CONDICION DONDE ejemplo: seleccionar edad")
+    print("Escribe el comando Seleccionar SIN LA CONDICION DONDE ejemplo: seleccionar edad, nombre")
     instruccion = input()
     conversion = instruccion.lower()
     validar = 'seleccionar' in conversion
@@ -405,14 +406,4 @@ table th {
     htmFile.close
     webbrowser.open_new_tab('reporte.html')
 
-def prueba(data):
-    luz = data
-    for entidad in data:
-        n = entidad['nombre']
-        e = entidad['edad']
-        a = entidad['activo']
-        p = entidad['promedio']
-        luz.append([n, e, a, p])
-    print(luz)
-    return data
 menu()
