@@ -1,5 +1,5 @@
 import json
-import re
+import webbrowser
 array = []
 edad = []
 promedio = []
@@ -24,7 +24,10 @@ def menu():
     elif opcion == "5":
         suma()
     elif opcion == "6":
-        contar()
+        cuenta()
+    elif opcion == "7":
+        reportar()
+        menu()
     elif opcion == "0":
         exit()
 
@@ -41,6 +44,7 @@ def analisiscargar():
     else: print("No utilizaste el comando Cargar")
     menu()
     return registro
+
 def cargar(archivo):
     with open(archivo) as file:
         data = json.load(file)
@@ -142,16 +146,127 @@ def suma():
     else: print("No utilizaste el comando Suma")
     menu()
 
-def contar():
-    print("Escribe el comando Contar")
+def cuenta():
+    print("Escribe el comando Cuenta")
     instruccion = input()
     conversion = instruccion.lower()
-    validar = 'contar' in conversion
+    validar = 'cuenta' in conversion
     if validar == True:
         cantidad = len(array)
         print(cantidad)
-    else: print("No utilizaste el comando Contar")
+    else: print("No utilizaste el comando Cuenta")
     menu()
+
+def reportar():
+    print("Escribe el comando Reportar")
+    instruccion = input()
+    conversion = instruccion.lower()
+    validar = 'reportar' in conversion
+    if validar == True:
+        comando = conversion.lstrip('reportar ')
+
+    htmFile = open("reporte.html", "w")
+    htmFile.write("""<!DOCTYPE HTML PUBLIC"
+
+    <html>
+
+    <head>
+        <title>REPORTE</title>
+     <meta charset="utf-5">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../../../vendors/css/vendor.bundle.addons.css">
+
+    <style type="text/css">
+            body{
+                background-color: #474D5A;
+            }
+            table tr:nth-child(even) {
+  background-color: #eee;
+}
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+table th {
+  color: white;
+  background-color: black;
+}
+            div#reporte {
+                width: 60%;
+                height: 98%;
+                border:solid black;	
+                background-color: #B1B7C4;
+                margin: 20%;
+                margin-top: 0;
+                border-radius: 50px;
+            }
+            div#titulo{
+                background-color: black;
+                border:solid black;
+                border-radius: 50px;
+                height:10%;
+            }
+            h1{
+                font-family: arial,helvetica;
+                color: white;
+            }
+            h6{
+                font-family: arial,helvetica;
+                color: black;
+            }
+            h5{
+                font-family: arial,helvetica;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="reporte">
+            <div id="titulo">
+                <center>
+                    <h1>Reporte  Registros Seleccionados</h1>
+                </center>
+            </div>
+            <center>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+       <th>nombre</th>
+        <th>edad</th>
+        <th>activo</th>
+        <th>saldo</th>
+      </tr>
+    </thead>
+
+    """)
+    i=int(comando)
+    p = array[0:i]
+    contenido = ""
+    for i in p:
+            contenido += (" <tbody>"
+                          "<td>" + i['nombre'] + "</td>"
+                                                 "<td>" + str(i['edad']) + "</td>"
+                                                                           "<td>" + str(i['activo']) + "</td>"
+                                                                                                       "<td>" + str(
+                i['promedio']) + "</td>"
+                              "</tbody>")
+
+    htmFile.write(contenido)
+
+    htmFile.write("""
+
+    </table>
+    <h6>
+                    Jonathan Ulises González Rodríguez
+                </h6>
+    </div>
+    </body>
+    </html>""")
+
+    htmFile.close
+    webbrowser.open_new_tab('reporte.html')
+
 
 def prueba():
     print(array)
