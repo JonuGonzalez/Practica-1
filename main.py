@@ -66,27 +66,135 @@ def seleccionar():
         comando = conversion.lstrip('seleccionar ')
         atributos = comando.strip().split(', ')
         s=[]
-        for entidad in array:
-            nombre = 'mbre' in atributos
-            activo = 'activo' in atributos
-            promedio = 'promedio' in atributos
-            if nombre == True:
-                n = entidad['nombre']
-                s.append(n)
-                print(s)
-            edad = 'edad' in atributos
-            if edad == True:
-                e = entidad['edad']
-                s.append(e)
-                print(s)
-            if activo == True:
-                a = entidad['activo']
-                s.append(a)
-                print(s)
-            if promedio == True:
-                p = entidad['promedio']
-                s.append(p)
-                print(s)
+        varios = ',' in conversion
+        if varios == False:
+            print(atributos)
+            for entidad in array:
+                nombre = 'mbre' in atributos
+                if nombre == True:
+                    n = entidad['nombre']
+                    s.append(n)
+                    print(s)
+            for entidad in array:
+                edad = 'dad' in atributos
+                if edad == True:
+                    e = entidad['edad']
+                    s.append(e)
+                    print(s)
+            for entidad in array:
+                activo = 'tivo' in atributos
+                if activo == True:
+                    a = entidad['activo']
+                    s.append(a)
+                    print(s)
+            for entidad in array:
+                promedio = 'promedio' in atributos
+                if promedio == True:
+                    p = entidad['promedio']
+                    s.append(p)
+                    print(s)
+        else:
+            print(atributos)
+            if atributos[0] == "mbre":
+                for entidad in array:
+                    nombre = 'mbre' in atributos
+                    if nombre == True:
+                        n = entidad['nombre']
+                        s.append(n)
+                        print(s)
+                for entidad in array:
+                    edad = 'edad' in atributos
+                    if edad == True:
+                        e = entidad['edad']
+                        s.append(e)
+                        print(s)
+                for entidad in array:
+                    activo = 'activo' in atributos
+                    if activo == True:
+                        a = entidad['activo']
+                        s.append(a)
+                        print(s)
+                for entidad in array:
+                    promedio = 'promedio' in atributos
+                    if promedio == True:
+                        p = entidad['promedio']
+                        s.append(p)
+                        print(s)
+            if atributos[0] == "dad":
+                for entidad in array:
+                    nombre = 'nombre' in atributos
+                    if nombre == True:
+                        n = entidad['nombre']
+                        s.append(n)
+                        print(s)
+                for entidad in array:
+                    edad = 'dad' in atributos
+                    if edad == True:
+                        e = entidad['edad']
+                        s.append(e)
+                        print(s)
+                for entidad in array:
+                    activo = 'activo' in atributos
+                    if activo == True:
+                        a = entidad['activo']
+                        s.append(a)
+                        print(s)
+                for entidad in array:
+                    promedio = 'promedio' in atributos
+                    if promedio == True:
+                        p = entidad['promedio']
+                        s.append(p)
+                        print(s)
+            if atributos[0] == "tivo":
+                for entidad in array:
+                    nombre = 'nombre' in atributos
+                    if nombre == True:
+                        n = entidad['nombre']
+                        s.append(n)
+                        print(s)
+                for entidad in array:
+                    edad = 'edad' in atributos
+                    if edad == True:
+                        e = entidad['edad']
+                        s.append(e)
+                        print(s)
+                for entidad in array:
+                    activo = 'tivo' in atributos
+                    if activo == True:
+                        a = entidad['activo']
+                        s.append(a)
+                        print(s)
+                for entidad in array:
+                    promedio = 'promedio' in atributos
+                    if promedio == True:
+                        p = entidad['promedio']
+                        s.append(p)
+                        print(s)
+            if atributos[0] == "promedio":
+                for entidad in array:
+                    nombre = 'nombre' in atributos
+                    if nombre == True:
+                        n = entidad['nombre']
+                        s.append(n)
+                        print(s)
+                for entidad in array:
+                    edad = 'edad' in atributos
+                    if edad == True:
+                        e = entidad['edad']
+                        s.append(e)
+                        print(s)
+                for entidad in array:
+                    activo = 'activo' in atributos
+                    if activo == True:
+                        a = entidad['activo']
+                        s.append(a)
+                        print(s)
+                for entidad in array:
+                    promedio = 'promedio' in atributos
+                    if promedio == True:
+                        p = entidad['promedio']
+                        s.append(p)
+                        print(s)
         menu()
 
 def maximo():
