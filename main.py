@@ -66,9 +66,16 @@ def seleccionar():
         comando = conversion.lstrip('seleccionar ')
         atributos = comando.strip().split(', ')
         s=[]
+        if comando[0] == "*":
+            for entidad in array:
+                n = entidad['nombre']
+                e = entidad['edad']
+                a = entidad['activo']
+                p = entidad['promedio']
+                s.append([n, e, a, p])
+            print(s)
         varios = ',' in conversion
         if varios == False:
-            print(atributos)
             for entidad in array:
                 nombre = 'mbre' in atributos
                 if nombre == True:
@@ -94,7 +101,6 @@ def seleccionar():
                     s.append(p)
                     print(s)
         else:
-            print(atributos)
             if atributos[0] == "mbre":
                 for entidad in array:
                     nombre = 'mbre' in atributos
