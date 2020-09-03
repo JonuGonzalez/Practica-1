@@ -58,7 +58,7 @@ def cargar(archivo):
     return array
 
 def seleccionar():
-    print("Escribe el comando Seleccionar")
+    print("Escribe el comando Seleccionar SIN LA CONDICION DONDE ejemplo: seleccionar edad")
     instruccion = input()
     conversion = instruccion.lower()
     validar = 'seleccionar' in conversion
